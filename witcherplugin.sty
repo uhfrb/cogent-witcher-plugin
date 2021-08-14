@@ -1,0 +1,41 @@
+\ProvidesPackage{witcherplugin}
+\RequirePackage[table]{xcolor}
+\RequirePackage{calc}
+\RequirePackage{fmtcount}
+\RequirePackage{multirow}
+\RequirePackage{tabularx}
+\RequirePackage{pgffor}
+\RequirePackage{hyperref}
+\RequirePackage{amssymb}
+\RequirePackage{contour}
+\RequirePackage{float}
+\RequirePackage{tikz}
+\RequirePackage{tikzsymbols}
+\RequirePackage{lists}
+
+\declarelist{abilities}{, }
+
+\newcommand{\defineability}[3]
+{
+  \expandafter\def\csname ability@#1@name\endcsname{#2}
+  \expandafter\def\csname ability@#1@desc\endcsname{#3}
+  \appendtolist{abilities}{#1}
+}
+
+\newcommand{\abilityname}[1]{\csname ability@#1@name\endcsname}
+\newcommand{\abilitydesc}[1]{\csname ability@#1@desc\endcsname}
+
+\newcommand{\abilityfull}[1]
+{
+  \paragraph{\abilityname{#1}}
+  \abilitydesc{#1}
+}
+
+\newcommand{\abilitylist}
+{
+  \edef\tmp{\getlist{abilities}}
+  \foreach \abilityID in \tmp
+  {
+    \abilityfull{\abilityID}
+  }
+}

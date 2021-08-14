@@ -1,0 +1,519 @@
+\documentclass[parskip=full,11pt]{scrreport}
+
+%\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm]{geometry}
+%\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+%\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage{witcherplugin}
+
+\title{The Witcher for Cogent RP}
+\author{Moritz Bär}
+
+% section numbers in margins:
+\renewcommand\sectionlinesformat[4]{\makebox[0pt][r]{#3}#4}
+% header & footer
+
+\usepackage{scrlayer-scrpage}
+\lofoot{\today}
+\refoot{\today}
+\pagestyle{scrheadings}
+
+\usepackage[sfdefault,light]{roboto}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[ddmmyyyy]{datetime} % must be after babel
+\renewcommand{\dateseparator}{-} 
+\usepackage{hyperref}
+\usepackage{amsmath} % for $\text{}$
+\usepackage[nameinlink]{cleveref}
+\crefname{figure}{Abb}{Abb}
+\usepackage[section]{placeins}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{multicol}
+
+\hypersetup{
+	pdftitle={The_Witcher_Plugin},
+	bookmarks=true,
+}
+\usepackage{csquotes}
+
+\definecolor{tablebackgroundpos1}{RGB}{181, 255, 243}
+\definecolor{tablebackgroundpos2}{RGB}{149, 230, 216}
+\definecolor{tablebackgroundposhead}{RGB}{136, 203, 227}
+
+\definecolor{tablebackgroundneg1}{RGB}{255, 215, 163}
+\definecolor{tablebackgroundneg2}{RGB}{255, 203, 153}
+\definecolor{tablebackgroundneghead}{RGB}{245, 177, 113}
+
+\renewcommand{\arraystretch}{1.4}
+
+\newcommand\urlpart[2]{$\underbrace{\text{\texttt{#1}}}_{\text{#2}}$}
+
+
+\begin{document}
+\makeatletter
+
+\input{abilities.tex}
+
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\iffalse % German texts
+	\chapter{Die Welt}
+
+	\section{Geographie}
+	\subsection{Karte des Nordens}
+	\includegraphics[width=1\textwidth,center]{Northernkingdoms}
+	\begin{tiny}\url{https://vignette.wikia.nocookie.net/witcher/images/1/17/Northernkingdoms_full.jpg/revision/latest?cb=20110530105156}\end{tiny}
+	\subsection{Wichtige Regionen}
+	In diesem Abschnitt wird die politische Situation der nördlichen Köngreiche außer Acht gelassen, er befasst sich lediglich mit geographischen Merkmalen.
+	\subsubsection{Die Drachenberge}
+	Die nördliche Grenze der Zivilisation. Niemand hat sie je überquert, zumindest nicht zweimal, um zu berichten, was sich auf der anderen Seite befindet. Die Gründe hierfür sind ihre extreme Abgeschiedenheit und die namensgebende Drachenpopulation.
+
+	\subsubsection{Die Blauen Berge}
+	Heimat der freien Elfen und natürliche Grenze zu Haakland und Zerrikania. Hier findet sich Dol Blathanna, das Tal der Blumen, eines der Wunder der nördlichen Welt. Die uralte Stadt Loc Muinne, erbaut von den mysteriösen Vran, findet sich auf etwa halber Höhe.
+
+	\subsubsection{Der Pontar und das Pontartal}
+	Der Pontar ist einer der größten Flüsse im Norden und trennt das Land von den Blauen Bergen bis zum Meer in einer nahezu horizontalen Linie. Das Tal, dass der Strom sich über die Jahrtausende geschliffen hat, ist das Füllhorn des Nordens: nahezu alle handelbaren Lebensmittel werden hier angebaut, einschließlich den Weinen des Nordens.
+
+	\subsubsection{Die Berge von Mahakam}
+	Die Erzreichen Bergkette zieht sich entlang der Grenze von Temeria und Aedirn. Sie ist die Heimat der Zwerge und Gnome und berühmt für deren hochwertige Schmiedekunst. Die größte Siedlung der Berge liegt unter dem Kohlenberg, wo seine Bewohner das weltbeste Eisen abbauen und die Gnome in ihren Werkstätten erstklassige Waffen wie die Gwyhir schmieden.
+
+	\subsubsection{Die Skellige-Inseln}
+	Eine Ansammlung von sechs Inseln westlich des Kontinents. Die rauhen Klippen und das graue Meer haben eine ungezähmte Schönheit. Jeder Reisende wünscht sich, einmal in seinem Leben die Sonne von einem Skelliger Gipfel ins Meer sinken zu sehen.
+
+	\subsubsection{Brokilon}
+	Von Menschen ``Wald des Todes'' genannt, erstreckt sich die wird die Heimat der Dryaden über das größte Waldgebiet des Nordens. Er bietet all jenen, die von Menschen verfolgt und diskriminiert werden, Zuflucht. Der Wald ist das letzte Reich des Nordens, das nie von Menschen erobert wurde.
+
+	\subsection{Königreiche und Völker}
+	\subsubsection{Redania}
+	Zur Zeit unter der Herrschaft König Radovid des Strengen, profitiert das Land vom Handel mit den anderen Reichen des Nordens. Die wichtigste Quelle von Redanias Wohlstand sind die Getreideexporte in den restlichen Norden. Die Wirtschaft wird allerdings von billigeren Importen aus Nilfgaard gefährdet. Redania steht in einer langen Tradition des Krieges mit Temeria, allerdings haben die beiden Reiche sich unter Radovids Herrschaft einander angenähert.
+	\paragraph{Wichtige Städte}
+	\subparagraph{Novigrad}
+	Obwohl Novigrad geographisch in Redania liegt, unterliegt sie nicht Radovids Herrschaft sondern ist vollständig selbstverwaltet. Die Stadt ist durch Handel zur reichsten Stadt des Nordens geworden, was sie hauptsächlich ihrem Hafen, einem der größten des Kontinents, zu verdanken hat.\\
+	Die Kirche des ewigen Feuers ist in der Freien Stadt so stark wie sonst kaum vertreten, der größte Tempel der Kirche thront auf einer steilen Klippe über der Stadt. Hexenjagden und Feindseligkeit gegenüber Nichtmenschen durchziehen daher die Stadt wie sonst nirgends.\\
+	Offiziell wird die Stadt von einem Stadtrat verwaltet, tatsächlich aber liegt sie in der Hand vier krimineller Organisationen:
+	\begin{itemize}
+		\item Hurensohn Juniors Gruppe, involviert in Glücksspiel, Bordelle und dergleichen
+		\item Sigi Reuvens Gruppe, geführt vom ehemaligen Redanischen Agent Sigismund Dijkstra, hält sich im Schatten. Womit genau sie ihr Geld verdienen, ist unbekannt, allerdings liegt die Vermutung nahe, dass es mit Spionage im Großen und im Kleinen zu tun hat.
+		\item Die Einwohner der geheimen Straße ``fauliger Hain'' unter der Führung von Francis Bedlam, dem ``König der Bettler''. Die meisten Mitglieder Diebe und Bettler.
+		\item Hackers Gruppe, geführt von einem Zwerg, besteht größtenteils aus Zwergen. Sie stellt beinahe eine kleine Armee auf die Beine.
+	\end{itemize}
+	\subparagraph{Oxenfurt}
+	Eine verhältnismäßig kleine Stadt, deren Kern auf einer Insel im Pontar liegt. Berühmt für seine Akademie, die die Naturwissenschaften fördert und den Großteil des Stadtkerns direkt (Campus) oder indirekt (Studentenkneipen\footnote{Wenn jemand ein Problem mit dem grammatikalischen Geschlecht hat, soll er/sie es sich anders denken, an der Oxenfurter Universität studieren auch Frauen, allerdings in der deutlichen Minderheit}) einnimmt. Die Stadt wurde nahezu vollständig auf den Ruinen einer Elfensiedlung erbaut, durch die heute nur noch die Kloake führt.
+	\subparagraph{Tretogor}
+	Die Hauptstadt Redanias, hauptsächlich für ihr jährliches Pferderennen, das ``Große Tretorianische,'' bekannt.
+
+	\subsubsection{Kaedwen}
+	Das größte Königreich des Nordens teilt sich seine Grenzen mit Redania und Aedirn und wird von König Henselt beherrscht. In den letzten Jahrzehnten gab es immer wieder Kriege zwischen Kaedwen und Aedirn, ausgelöst durch den von beiden Seiten erhobenen Anspruch auf das Pontartal. Bis jetzt hält Aedirn diesen Landstrich.
+	\paragraph{Wichtige Städte}
+	\subparagraph{Ban Ard}
+	Die wahrscheinlich wichtigste Stadt Kaedwens. Hier befindet sich die berühmte Magierakademie.
+\fi
+
+\chapter*{Introduction}
+This document is meant to aid in organizing tabletop roleplaying sessions set in the world of The Witcher using the system Cogent Roleplay.
+It is by no means exhaustive, and does not attempt to be: Anyone seeking to narrate a campaign in so complex a world had best have some first-
+hand experience of it, and both the original books and the games will convey more details on any given topic than this plugin. It is concerned
+mostly with creating rules that (more or less) faithfully convey the experience of the original works in this roleplaying system, as well as
+keeping the spirit of simplicity and learnability of the underlying system. Yet it
+endeavours also to serve as a reference for players who have never heard of this setting before, not to give detailed descriptions of the world,
+but to provide names and points of reference that can be used to look up detailed information whereever desired.
+\\\\
+Since the my only direct exposure to The Witcher has hitherto been the series of games, these to a large degree shape the gameplay elements.
+For the same reason, the time all descriptions are appropriate to is roughly between the first two games, though of course, the same rules (and
+most of the descriptions) can be used to play during any time a couple decades sooner or later.
+\\\\
+The document contains very few images, as I do not hold the right to any. I believe the Bestiary in particular would benefit greatly
+from depictions of the various creatures, but 1) It would be a lot of effort to find fitting portraits and 2) It would be even more effort to
+ensure I do not encroach on copyright of any sort. Happily, images can be easily found by looking up the creatures' names online.
+\\\\
+This version of the plugin is by no means complete, more content is to be added (hopefully soon).
+
+\chapter{The world}
+\section{Geography}
+\subsection{A map of the North}
+\begin{center}
+	\includegraphics[max size={\textwidth}{\textheight}]{Northernkingdoms}
+	\begin{tiny}\url{https://vignette.wikia.nocookie.net/witcher/images/1/17/Northernkingdoms_full.jpg/revision/latest?cb=20110530105156}\end{tiny}
+\end{center}
+
+\subsection{Important regions}\label{region:dragonMtns}
+This section ignores the political Situation of the Northern Realms, it is concerned exclusively with geographic features.
+\subsubsection{The Dragon Mountains}
+The northern border of civilization. They were never crossed, or at least not crossed twice, so no report of the lands the other side of the mountains has come into the south.
+This is explained by their extreme remoteness and the considerable population of dragons the mountain range draws its name from.
+
+\subsubsection{The Blue Mountains}\label{region:blueMtns}
+Home to the free elves and a natural border to Haakland and Zerrikania. Here is Dol Blathanna, the Valley of Flowers, a wonder of the northern world.
+Roughly halfway along the range lies the ancient city of Loc Muine that was built by the mysterious Vran.
+
+\subsubsection{The Pontar River and the Pontar Valley}\label{region:pontar}
+The Pontar is one of the chief rivers of the north, seperating the land in a nearly straight line from the \nameref{region:blueMtns} to the sea.
+The valley, formed over millenia out of reckoning by the river, is the granary of the north: Nigh on all tradeable foods are grown here,
+including the northern wines.
+
+\subsubsection{The Mountains of Mahakam}\label{region:mahakamMtns}
+These mountains form the border between \nameref{realm:aedirn} and \nameref{realm:temeria} and are known for the great wealth
+of ore found there. It is hardly surprising that the mountains, homeland of dwarves and gnomes, have produced some of the finest
+pieces of smithcraft to be found at this age in the world. The regions largest settlement is situated beneath Mount Carbon,
+where its inhabitants mine incessantly for the worlds best iron and gnomes in their smithies forge excellent weapons, such as
+the renowned Gwyhir.
+
+\subsubsection{The Skellige-Isles}\label{region:skellige}
+A collection of six islands to the continent's west. Their rough cliffs and grey sea have an untamed, perilous beauty.
+No traveller in the north should forgo the sight of the sun sinking into the sea from a summit of a mountain in Skellige.
+
+\subsubsection{Brokilon}\label{region:brokilon}
+Called by men the ``Forest of Death,'' the home of the Dryads stretches across the north's largest wood. It offers a refuge to
+all those pursued and discriminated against by men and stands as the last realm never conquered by the younger race.
+
+\newpage
+
+\subsection{Realms and peoples}
+This section \textit{is} concerned with politics, as well as social structures and institutions.
+
+\subsubsection{Redania}\label{realm:redania}
+Ruled at the moment by king Radovid the Stern, the kingdom profits greatly from trade with the other realms of the north.
+The chief source of \nameref{realm:redania} are her export of grain to less fertile regions, though recently cheaper
+imports from \nameref{realm:nilfgaard} have begun threatening this key factor of the Redanian economy.
+\nameref{realm:redania} stands in a long tradition of war with \nameref{realm:temeria}, however, the two kingdoms have
+grown closer during the reign of Radovid.
+
+\paragraph{Key cities}
+\subparagraph{The Free City of Novigrad}\label{city:novigrad}
+Although geographically part of \nameref{realm:redania}, the city of \hyperref[city:novigrad]{Novigrad} is not ruled by Radovid but rather self-gouverned.
+She has by trade become the richest city of the north, a success due largely to her haven - one of the greatest on the entire continent.
+
+The Church of the Eternal Fire has an influence greater than anywhere else in the \hyperref[city:novigrad]{Free City}, its greatest temple towers over the city atop a sheer cliff.
+Hence it is an unfortunate truth that nowhere else can such animosity towards non-humans be found, and witch-hunts are a gruesome factor of life in \hyperref[city:novigrad]{Novigrad}.
+
+Officially, the Free City is gouverned by a city council, but in fact all real power rests in the hands of four criminal organizations:
+\begin{itemize}
+	\item Whoreson Junior's gang, involved in gambling and brothels and the like. They are, as a rule, despised even by their peers.
+	\item Sigi Reuven's gang, lead by the former redanian agent Sigismund Dijkstra, mostly lurks in the shadows of the town.
+	      How exactly they make ends meet is unknown, however the assumption that it is connected to clandestine activities of some sort
+	      is quite obious.
+	\item The inhabitants of the secret street aptly named ``the Putrid Grove'' led by Francis Bedlam, the ``King of Beggars''.
+	      The group consists mostly of thieves and beggars who find refuge and pawn shops in their home street.
+	\item Cleaver's gang mostly consists of dwarves, quite sensibly, as Cleaver himself is a dwarf. It specializes on thuggery of all
+	      kinds and practically amounts to a small army.
+\end{itemize}
+
+\subparagraph{Oxenfurt}\label{city:oxenfurt}
+A small town by comparison, with its centre situated on an island in the \hyperref[region:pontar]{Pontar}. It is well renowned for it's academy
+which supports the natural sciences and almost entirely fills the cities centre, either directly with its large campus, or indirectly
+with pubs and similar establishments frequented by students and teachers alike. The town was built upon the ruins of an elven settlement,
+however, the ancient brickwork can nowadays only be admired by anyone unfortunate enough to find their way into the sewers.
+
+\subparagraph{Tretogor}\label{city:tretogor}
+The capital city of \nameref{realm:redania}, known mostly for the annual horse race, the ``Grand Tretorian,'' held here.
+
+
+\subsubsection{Kaedwen}\label{realm:kaedwen}
+The largest of the Northern Realms, \nameref{realm:kaedwen} shares borders with both \nameref{realm:redania} and \nameref{realm:aedirn}.
+The kingdom's ruler is king Henselt, who has continued the petty wars and skirmishes with \nameref{realm:aedirn} that have been occurring
+for many decades over which realm gets to control the \hyperref[region:pontar]{Pontar Valley}. To date, the region is held by \nameref{realm:aedirn}.
+
+\paragraph{Key cities}
+\subparagraph{Ban Ard}\label{city:ban_ard}
+Likely the most important city in \nameref{realm:kaedwen} and home to the powerful sorcerers' academy.
+
+\subparagraph{Ard Carraigh}\label{city:ard_carraigh}
+The capital city of \nameref{realm:kaedwen}, though lesser in most ways than \nameref{city:ban_ard}.
+
+\subsubsection{Aedirn}\label{realm:aedirn}
+Situated between \hyperref[region:mahakamMtns]{the mountains of Mahakam} to the west, \nameref{realm:kaedwen} to the north and
+\hyperref[region:blueMtns]{the Blue Mountains} to the east, \nameref{realm:aedirn} is shielded from harsh weather by the surrounding mountain
+ranges. This kind and consistant climate, along with \hyperref[region:pontar]{the Pontar Valley}, have enabled a strong agricultural economy
+to flourish. Further, the proximity to Mount Carbon has lead to the development of considerable industry in the western parts of the kingdom.
+\nameref{realm:aedirn} is ruled by king Demavend the Third.
+
+\paragraph{Key cities}
+\subparagraph{Vengerberg}\label{city:vengerberg}
+The capital city of \nameref{realm:aedirn} and in days gone by one of the richest and most populous cities in the north. In the most recent war
+with \nameref{realm:nilfgaard}, however, it was sacked, and has since only slowly begun rebuilding.
+
+\subsubsection{Temeria}\label{realm:temeria}
+...
+
+\subsubsection{Nilfgaard}\label{realm:nilfgaard}
+...
+
+\chapter{Character creation}
+In this chapter, the impact of the characters race on stats and gameplay will be described. A short and intentionally vague paragraph on starting
+equipment is also included after each ``class''. These are only suggestions and not meant to be exhaustive, anyone playing this plugin is likely
+to know the franchise well enough to figure out for themselves what is reasonable equipment.
+
+\section{Race}
+A character's race has little influence over their stats, instead, the chief effect it has is a social one: Humans, particularly in the North,
+pursue and dislike any of the other races, though the extremity varies from area to area. An elf may be well-advised to cover his ears when
+taking a stroll around \hyperref[city:novigrad]{Novigrad}, whereas a human will be in deep trouble when trespassing into \nameref{region:brokilon}.
+Discrimination needn't be limited to open hostility, however: A cunning narrator will perhaps charge a dwarf double when he tries to shop in
+human territory.
+
+\subsection{Elves}
+Elves appear somewhat feminine regardless of gender, their ears are pointed and they seldom
+wear beards. They have a knack for plants and animals, and are rarely seen in metal armor.
+\\\\
+Elves gain one additional attribute point in REF, as well as a bonus success to perception.
+
+\subsection{Dopplers}
+Dopplers live a dangerous life: Should they be found out, most would burn them at the stake or try to exploit them in criminal endeavours.
+They can take the shape of any humanoid creature they have seen before, which not only makes them look practically identical but also allows the
+doppler to use some of their skills. Any permanent markings on the body, such as scars or tattoos, will be present in any form the doppler takes.
+\\\\
+Dopplers don't gain any points by default, but may \textit{transform}. When transformed into another character, their effective skill points in
+any skill\footnote{Explicitly not in attributes} are the average between their own and those of whoever they impersonate. They are, unless marked
+by some permanent feature, indistinguishable from the people they copy, but may still be found out if they behave strangely.
+
+\subsection{Dwarves}
+Dwarves are shorter than humans, but typically a bit taller than halflings. They make excellent
+heavy infantry, but can also be prolific craftsmen. It should also be mentioned that the world's
+largest bank is run by the Vivaldis, a family of dwarves.
+\\\\
+Dwarves gain one additional attribute point in STR, one extra success in grappling and no penalty
+when unarmed in close combat.
+
+\subsection{Halflings}
+Halflings, as a rule, are on better terms with humans than most other races. One possible explanation for this is that they tend to live
+in secluded farmsteads and keep out of the way of humans while supplying them with honey, roots and other agricultural commodities.
+\\\\
+Halflings may roll one extra die on \textit{aim/throw}, \textit{acrobatics} and \textit{sleight of hand} checks, and they are immune to magic
+\footnote{This includes hypnosis and the like. Magic can still harm them, as, for example, while they cannot be magically set ablaze, their surroundings
+	can, and they are not immune to heat. Nor large rocks, for that matter.}. They must not exceed one attribute point in STR.
+
+\subsubsection{Humans}
+Since Cogent Roleplay assumes humans as the standard, so shall this plugin. Humans' stats are simply the default,
+but they will not draw any special attention to themselves in most regions. If some advice may be given, it makes
+for a less interesting game to pick one's character by giving them the best stats possible than by coming up with
+a character concept and picking skills consistent with that concept.
+
+\section{Professions}
+Naturally, the typical professions found in most fantasy settings can be applied here, too; it is advised, however, to talk over specifics with
+the narrator, as social positions might be and organizations will be unique to this world. Since this document should allow even those with no
+prior experience of The Witcher at least to participate in a campaign, some of the less obvious professions are listed here.
+
+\subsection{Havekar}
+Smugglers who sell arms to the \nameref{profession:scoiatael}, some out of sympathy but most out of greed. They are scarcely less hated than the ones they supply,
+and slightingly named Hawkers by their enemies.
+
+\subsection{Scoia'tael}\label{profession:scoiatael}
+Guerrilla fighters in league with \nameref{realm:nilfgaard}, they joined the second northern war to fight for a free country of non-humans.
+They are mostly elves and dwarves, but some halflings have also joined the ranks. Even now, in times of peace, they continue to harass the
+unwary, turning more and more into terrorists. Men call them Squirrels and pay good money for their heads.
+
+\section{Witchers}
+Since being a Witcher determines both one's profession and genetic makeup, they will be treated separately from all other types of character. Quite appropriately,
+when you think about it.
+\\\\
+Witchers, similarly to non-humans, suffer distrust and harassment in most places, especially cities far removed from the monsters Witchers were
+made to combat. They are generally tolerated, however, much in the way that whalers are: They're nasty, unrefined, and they stink, but their
+jobs have to be done by someone. It is also commonly accepted that the mutations Witchers undergo rob them of any emotions. Their eyes are like
+those of a cat, and by this, they can be told from regular humans, if the two swords did not already give the game away.
+\\\\
+Witchers gain one additional attribute point to be spent on either STR or REF. Their vocation is \textit{Witcher}
+\footnote{This vocation can be used to assist in most perception checks, as it includes the Witchers' senses.
+	It also includes herblore, knowledge about monsters and all things part of the profession}
+, and they must put at least two skill points into this vocation, as well as one skill point each into proficiency with longsword
+and \hyperref[rule:signs]{signs}. Witchers needn't make any dice rolls to determine their compatibility with \nameref{rule:witcher_potions}.
+\\\\
+Starting wealth will typically range from 1 to 3. The Witcher will likely be equipped with light or medium armor, a steel and a silver
+longsword and perhaps one or two potions.
+
+\chapter{Magic system}
+\section{Witcher signs}\label{rule:signs}
+A Witcher may cast these signs as long as he has at least one free hand. If he casts one of these signs in
+combat, their base modifier is +0D6.
+
+\subsection{Aard}
+The character issues a shockwave from their hand. Can replace strength checks (use two thirds of successes).
+
+\subparagraph{In combat:} Cannot damage opponents, but only \textit{stagger}, \textit{disarm} or \textit{trip}. Add 2 successes.
+
+\subsection{Axii}
+Mild form of hypnosis. May be used to assist in persuasion, deception or any other skill attempting to influence
+someone's mind. Some monsters and most mages are immune to such manipulation.
+
+\subparagraph{In combat:} Detract victory level over victim from victim's successes next turn. If the victim's
+successes thereby become negative, they are doubled to assault their partners (if any).
+
+\subsection{Igni}
+The character issues small amounts of flame from their hand. Can be used to light fires, candles etc.
+
+\subparagraph{In combat:} +1D6 in close combat. The player may choose to blind the opponent
+if he achieves a victory level of 3 or higher.
+
+\subsection{Quen}
+The character draws up a shield around themselves. This protects them from fire as well as small objects, such threats as
+falling trees, for example, are not averted by Quen. The shield fits one character for every 2 successes rolled.
+
+\subparagraph{In combat:} Purely defensive round, but the successes are doubled.
+
+\subsection{Yrden}
+The character sets up a magical trap in a circle 1 or 7 feet in diameter. They must be able to pysically reach the perimeter to do this. Only one such trap may be active at any one time.
+
+\textbf{Small circle:} The first opponent to step into the circle is immobilized for one turn of combat for every success above 3.
+
+\textbf{Large circle (CL4):} Every opponent within the circle rolls one fewer die on every roll.
+
+\nameref{monster:spectre} may be harmed by any weapon while within a trap set by Yrden.
+
+\subparagraph{In combat:} Setting up a small circle takes one turn of combat, the large circle takes three.
+
+\section{Witcher potions}\label{rule:witcher_potions}
+The potions' effects typically last about 8 hours.
+
+If any non-Witcher tries taking a Witcher potion, they must make a destiny roll. If this roll is an eight or worse,
+they are poisoned by the potion, the severity ranging from day-long nausea to incapacitation and serious risk of death,
+unless medical action is taken. If the result ranges from nine to twelve, the character drinking the potion throws it
+up but suffers no long-term damage from it. If the result is thirteen or higher, the potion developes its effect
+partially or fully.
+
+A Witcher attempting to consume more than 3 potions in 36 hours is treated like any non-Witcher for every potion he drinks
+after his third.
+
+Penalties for repeated incompatability may be issued as seems fit.
+\\[2ex]
+\subparagraph{Rarity of ingredients:}
+The rarity of ingredients determines the challenge level on a survival check on finding them in the wild
+\footnote{Though, of course, depending on ones surroundings, penalties or boni may be issued}.
+It should also inform the availability and cost when attempting to purchase them.
+
+\subsection{Black blood}
+Turns the consumers blood into a lethal poison. Any creature drinking it while the effect lasts immediately receives
+poisoning equivalent to a level 4 injury.
+\\[2ex]
+Rarity of ingredients: 3
+
+\subsection{Cat}
+Negates all penalties to perception checks caused by darkness.
+\\[2ex]
+Rarity of ingredients: 2
+
+\subsection{Swallow}
+Immediately heals all level 1 injuries. Over time reduces the injury levels of all injuries by up to 2.
+\\[2ex]
+Rarity of ingredients: 4
+
+\subsection{Thunderbolt}
+Grants one extra die for each combat roll, but negates boni for defensive actions.
+\\[2ex]
+Rarity of ingredients: 4
+
+\subsection{White honey}
+Cancels the effects of all other potions and removes any poisoning caused by potions.
+\\[2ex]
+Rarity of ingredients: 3
+
+\chapter{Additional combat modifiers}
+
+\large
+
+\subsubsection*{Positive}
+
+\rowcolors{2}{tablebackgroundpos2}{tablebackgroundpos1}
+\begin{tabular}{cl}
+	\rowcolor{tablebackgroundposhead}
+	\textbf{Name} & \textbf{Effect} \\
+\end{tabular}
+
+
+\subsubsection*{Negative}
+
+\rowcolors{2}{tablebackgroundneg2}{tablebackgroundneg1}
+\begin{tabular}{cl}
+	\rowcolor{tablebackgroundneghead}
+	\textbf{Name}                       & \textbf{Effect}                                  \\
+	Blindness\label{modifier:blindness} & -4D6, Destiny roll to determine target of attack \\
+\end{tabular}
+
+\normalsize
+
+\chapter{Bestiary}
+In this chapter will be listed some of the typical monsters one might face in the world of The Witcher.
+Stats are, once again, only suggestions
+
+\section{Beasts}
+While not magical in the ordinary sense of the word, these wild animals pose a serious threat to any wanderer
+foolish enough to disturb them.
+
+\subsection{Bears}
+Large heaps of muscle and fur. Any wounds ordinary weapons can inflict are likely only to make them more irate still.
+
+\subparagraph{Stats:}
+4-6 STR, 0-1 REF, 0-1 Claw'n'Maw (proficiency)
+
+\subsection{Wargs}
+The larger, stronger, nastier cousins of wolves. It is said they delight in evil and cruelty, though scholars
+are dubious on this point. It is generally agreed, however, that wargs tend to lead packs of their lesser kin
+instead of banding together themselves.
+
+\subparagraph{Stats:}
+1-2 STR, 0-2 REF, 1-2 Claw'n'Maw (proficiency)
+
+\subsection{Wolves}
+Slender, but strong, and silent until they attack. A single wolf should not pose a great threat to a determined
+man\footnote{Or a woman, for that matter} with a sword, but they tend to come in packs.
+
+\subparagraph{Stats:}
+0-1 STR, 0-2 REF, 0-1 Claw'n'Maw (proficiency)
+
+\section{Necrophages}
+Here are listed the manifold corpse-eaters plagueing the war-torn areas of the North. Whereever there
+are corpses unburied, one can be sure to come across a handful of these truly unsanitory creatures.
+
+\subsection{Rotfiends}
+Of humaniod shape, but with pale, sickly yellow-ish skin and thick, protruding, deeply red veins. Like
+with most necrophages, their stench proceeds them. When terminally wounded, they are prone to explode
+spectacularily. This is their true danger, since their blood is poisonous.
+
+Injuries dealt by non-silver weapons are halved.
+
+\subparagraph{Stats:}
+0-1 STR, 0-1 REF, 0-1 Strangle (proficiency)
+
+\subsubsection{Abilities}
+
+\abilityfull{selfdetonationrotfiend}
+
+\section{Spectres}\label{monster:spectre}
+This section contains all those incorporeal beings whose origins can be found in the deceased. They cannot be
+harmed unless by silver weapons or specialized magic. The weaker ones can be dispelled by silver, but those
+with uncut ties to the world of the living may simply reappear the next day if defeated.
+
+\subsection{Noonwraiths}
+Usually the restless souls of those who came to a violent end in the fields by day. They scorch the earth around them
+and can become quite dazzlingly bright. Since they are scolding hot, every turn in close combat results in a minor injury.
+
+\subparagraph{Stats:}
+1-2 REF, 0-1 STR, 1-2 Wraith's wrath (proficiency, used in ability-rolls)
+
+\subsubsection{Abilities}
+
+\abilityfull{blinding}
+\abilityfull{restoration:spectre}
+
+\subsection{Nightwraiths}
+Usually the restless souls of those who came to a violent end in the fields by night. They freeze the grass around them
+and can emit fearsomely frosty fog. Since they are deadly cold, every turn in close combat results in a minor injury.
+
+\subparagraph{Stats:}
+1-2 REF, 0-1 STR, 1-2 Wraith's wrath (proficiency, used in ability-rolls)
+
+\subsubsection{Abilities}
+
+\abilityfull{freezingfog}
+\abilityfull{restoration:spectre}
+
+\chapter{List of abilities}
+
+\abilitylist
+
+\end{document}
