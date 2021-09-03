@@ -12,6 +12,7 @@
 \RequirePackage{tikz}
 \RequirePackage{tikzsymbols}
 \RequirePackage{lists}
+\RequirePackage{xstring}
 
 \declarelist{abilities}{, }
 
@@ -38,4 +39,11 @@
   {
     \abilityfull{\abilityID}
   }
+}
+
+\newcommand{\weapon}[5][]
+{
+  \paragraph{#2:} #3 \\[1ex]%
+  \IfStrEq{#1}{}{}{\label{#1}}%
+  +#4D6, reduces an opponent's armor by #5.
 }
