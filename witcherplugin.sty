@@ -12,7 +12,13 @@
 \RequirePackage{tikz}
 \RequirePackage{tikzsymbols}
 \RequirePackage{lists}
+\RequirePackage{etoolbox}
 \RequirePackage{xstring}
+
+\def\IfStrNotEmpty#1#2
+{
+  \IfStrEq{#1}{}{}{#2}
+}
 
 \declarelist{abilities}{, }
 
@@ -35,15 +41,49 @@
 \newcommand{\abilitylist}
 {
   \edef\tmp{\getlist{abilities}}
-  \foreach \abilityID in \tmp
-  {
-    \abilityfull{\abilityID}
-  }
+  \expandafter\forcsvlist\expandafter\abilityfull\expandafter{\tmp}
 }
 
 \newcommand{\weapon}[5][]
 {
   \paragraph{#2:} #3 \\[1ex]%
-  \IfStrEq{#1}{}{}{\label{#1}}%
+  \IfStrNotEmpty{#1}{\label{#1}}%
   +#4D6, reduces an opponent's armor by #5.
+}
+
+\newcommand{\definecity}[4]
+{
+  \expandafter\def\csname city@#1@name\endcsname{#2}
+  \expandafter\def\csname city@#1@desc\endcsname{#3}
+  \appendtolist{realm@#4@cities}{#1}
+}
+
+\newcommand{\printcity}[2][]
+{
+  \subparagraph{\csname city@#2@name\endcsname} \csname city@#2@desc\endcsname%
+  \IfStrEq{#1}{}{\label{city:#2}}{\label{city:#1}}
+}
+
+\newcommand{\definerealm}[4]
+{
+  \expandafter\def\csname realm@#1@name\endcsname{#2}
+  \expandafter\def\csname realm@#1@desc\endcsname{#3}
+  \declarelist{realm@#1@cities}{, }
+}
+
+\newcommand{\printrealm}[2][]
+{
+  \fbox{\begin{minipage}{\textwidth + 0.5cm}
+    \subsubsection{\csname realm@#2@name\endcsname}
+    \IfStrEq{#1}{}{\label{realm:#2}}{\label{realm:#1}}
+    \csname realm@#2@desc\endcsname
+
+    \edef\tmp{\getlist{realm@#2@cities}}
+    \IfStrNotEmpty{\tmp}
+    {
+      \paragraph{Key cities}
+      \expandafter\forcsvlist\expandafter\printcity\expandafter{\tmp}
+    }
+  \end{minipage}
+  }
 }
