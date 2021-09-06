@@ -20,7 +20,7 @@
   \IfStrEq{#1}{}{}{#2}
 }
 
-\declarelist{abilities}{, }
+\declarecsvlist{abilities}
 
 \newcommand{\defineability}[3]
 {
@@ -32,7 +32,7 @@
 \newcommand{\abilityname}[1]{\csname ability@#1@name\endcsname}
 \newcommand{\abilitydesc}[1]{\csname ability@#1@desc\endcsname}
 
-\newcommand{\abilityfull}[1]
+\newcommand{\printability}[1]
 {
   \paragraph{\abilityname{#1}}
   \abilitydesc{#1}
@@ -41,7 +41,7 @@
 \newcommand{\abilitylist}
 {
   \edef\tmp{\getlist{abilities}}
-  \expandafter\forcsvlist\expandafter\abilityfull\expandafter{\tmp}
+  \doforall{abilities}{\printability}
 }
 
 \newcommand{\weapon}[5][]
@@ -60,7 +60,7 @@
 
 \newcommand{\printcity}[2][]
 {
-  \subparagraph{\csname city@#2@name\endcsname} \csname city@#2@desc\endcsname%
+  \paragraph{\csname city@#2@name\endcsname} \csname city@#2@desc\endcsname%
   \IfStrEq{#1}{}{\label{city:#2}}{\label{city:#1}}
 }
 
@@ -68,22 +68,17 @@
 {
   \expandafter\def\csname realm@#1@name\endcsname{#2}
   \expandafter\def\csname realm@#1@desc\endcsname{#3}
-  \declarelist{realm@#1@cities}{, }
+  \declarecsvlist{realm@#1@cities}
 }
 
 \newcommand{\printrealm}[2][]
 {
-  \fbox{\begin{minipage}{\textwidth + 0.5cm}
-    \subsubsection{\csname realm@#2@name\endcsname}
-    \IfStrEq{#1}{}{\label{realm:#2}}{\label{realm:#1}}
-    \csname realm@#2@desc\endcsname
-
-    \edef\tmp{\getlist{realm@#2@cities}}
-    \IfStrNotEmpty{\tmp}
-    {
-      \paragraph{Key cities}
-      \expandafter\forcsvlist\expandafter\printcity\expandafter{\tmp}
-    }
-  \end{minipage}
+  \subsection{\csname realm@#2@name\endcsname}
+  \IfStrEq{#1}{}{\label{realm:#2}}{\label{realm:#1}}
+  \csname realm@#2@desc\endcsname
+  \IfNotEmpty{realm@#2@cities}
+  {%
+    \subsubsection{Key cities}
+    \doforall{realm@#2@cities}{\printcity}
   }
 }

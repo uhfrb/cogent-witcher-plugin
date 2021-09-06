@@ -1,4 +1,5 @@
-\documentclass[parskip=full,11pt]{scrreport}
+\documentclass[parskip=full,11pt,%
+footheight=38pt]{scrreport}
 
 %\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm]{geometry}
 %\usepackage[utf8]{inputenc}
@@ -10,7 +11,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{witcherplugin}
 
-\title{The Witcher for Cogent RP}
+\def\thetitle{The Witcher for Cogent RP}
+\def\theversion{0.0.1}
+
+\title{\thetitle}
 \author{Moritz Bär}
 
 % section numbers in margins:
@@ -18,8 +22,8 @@
 % header & footer
 
 \usepackage{scrlayer-scrpage}
-\lofoot{\today}
-\refoot{\today}
+\lofoot{\thetitle \textendash Version \theversion}
+\refoot{}
 \pagestyle{scrheadings}
 
 \usepackage[sfdefault,light]{roboto}
@@ -138,46 +142,46 @@ ensure I do not encroach on copyright of any sort. Happily, images can be easily
 This version of the plugin is by no means complete, more content is to be added (hopefully soon).
 
 \chapter{The world}
-\section{Geography}
+
 \subsection{A map of the North}
 \begin{center}
 	\includegraphics[max size={\textwidth}{\textheight}]{Northernkingdoms}
 	\begin{tiny}\url{https://vignette.wikia.nocookie.net/witcher/images/1/17/Northernkingdoms_full.jpg/revision/latest?cb=20110530105156}\end{tiny}
 \end{center}
 
-\subsection{Important regions}\label{region:dragonMtns}
+\section{Important regions}\label{region:dragonMtns}
 This section ignores the political Situation of the Northern Realms, it is concerned exclusively with geographic features.
-\subsubsection{The Dragon Mountains}
+\subsection{The Dragon Mountains}
 The northern border of civilization. They were never crossed, or at least not crossed twice, so no report of the lands the other side of the mountains has come into the south.
 This is explained by their extreme remoteness and the considerable population of dragons the mountain range draws its name from.
 
-\subsubsection{The Blue Mountains}\label{region:blueMtns}
+\subsection{The Blue Mountains}\label{region:blueMtns}
 Home to the free elves and a natural border to Haakland and Zerrikania. Here is Dol Blathanna, the Valley of Flowers, a wonder of the northern world.
 Roughly halfway along the range lies the ancient city of Loc Muine that was built by the mysterious Vran.
 
-\subsubsection{The Pontar River and the Pontar Valley}\label{region:pontar}
+\subsection{The Pontar River and the Pontar Valley}\label{region:pontar}
 The Pontar is one of the chief rivers of the north, seperating the land in a nearly straight line from the \nameref{region:blueMtns} to the sea.
 The valley, formed over millenia out of reckoning by the river, is the granary of the north: Nigh on all tradeable foods are grown here,
 including the northern wines.
 
-\subsubsection{The Mountains of Mahakam}\label{region:mahakamMtns}
+\subsection{The Mountains of Mahakam}\label{region:mahakamMtns}
 These mountains form the border between \nameref{realm:aedirn} and \nameref{realm:temeria} and are known for the great wealth
 of ore found there. It is hardly surprising that the mountains, homeland of dwarves and gnomes, have produced some of the finest
 pieces of smithcraft to be found at this age in the world. The regions largest settlement is situated beneath Mount Carbon,
 where its inhabitants mine incessantly for the worlds best iron and gnomes in their smithies forge excellent weapons, such as
 the renowned Gwyhir.
 
-\subsubsection{The Skellige-Isles}\label{region:skellige}
+\subsection{The Skellige-Isles}\label{region:skellige}
 A collection of six islands to the continent's west. Their rough cliffs and grey sea have an untamed, perilous beauty.
 No traveller in the north should forgo the sight of the sun sinking into the sea from a summit of a mountain in Skellige.
 
-\subsubsection{Brokilon}\label{region:brokilon}
+\subsection{Brokilon}\label{region:brokilon}
 Called by men the ``Forest of Death,'' the home of the Dryads stretches across the north's largest wood. It offers a refuge to
 all those pursued and discriminated against by men and stands as the last realm never conquered by the younger race.
 
 \newpage
 
-\subsection{Realms and peoples}
+\section{Nations and states}
 This section \textit{is} concerned with politics, as well as social structures and institutions.
 
 \printrealm{aedirn}
@@ -239,7 +243,7 @@ Halflings may roll one extra die on \textit{aim/throw}, \textit{acrobatics} and 
 \footnote{This includes hypnosis and the like. Magic can still harm them, as, for example, while they cannot be magically set ablaze, their surroundings
 	can, and they are not immune to heat. Nor large rocks, for that matter.}. They must not exceed one attribute point in STR.
 
-\subsubsection{Humans}
+\subsection{Humans}
 Since Cogent Roleplay assumes humans as the standard, so shall this plugin. Humans' stats are simply the default,
 but they will not draw any special attention to themselves in most regions. If some advice may be given, it makes
 for a less interesting game to pick one's character by giving them the best stats possible than by coming up with
@@ -261,6 +265,9 @@ They are mostly elves and dwarves, but some halflings have also joined the ranks
 unwary, turning more and more into terrorists. Men call them Squirrels and pay good money for their heads. High-ranking Scoia'tael are
 likely to wield a \hyperref[weapon:gwyhir]{Gwyhir}, but light armour, sword and bow are likely part of any Guerilla's equipment.
 They should not start out with wealth above the equivalent of two commerce points.
+
+\subsection{Knight-errant}\label{profession:knight_errant}
+\dots
 
 \section{Witchers}
 Since being a Witcher determines both one's profession and genetic makeup, they will be treated separately from all other types of character. Quite appropriately,
@@ -544,7 +551,7 @@ Roughly Halfling-sized, feathered creatures, chiefly found in areas with rough c
 
 \subsubsection{Abilities}
 
-\abilityfull{fly:humanoid}
+\printability{fly:humanoid}
 
 \section{Necrophages}
 Here are listed the manifold corpse-eaters plagueing the war-torn areas of the North. Whereever there
@@ -562,7 +569,7 @@ Injuries dealt by non-silver weapons are halved.
 
 \subsubsection{Abilities}
 
-\abilityfull{selfdetonation:rotfiend}
+\printability{selfdetonation:rotfiend}
 
 \section{Spectres}\label{monster:spectre}
 This section contains all those incorporeal beings whose origins can be found in the deceased. They cannot be
@@ -578,8 +585,8 @@ and can become quite dazzlingly bright. Since they are scolding hot, every turn 
 
 \subsubsection{Abilities}
 
-\abilityfull{blinding}
-\abilityfull{restoration:spectre}
+\printability{blinding}
+\printability{restoration:spectre}
 
 \subsection{Nightwraiths}
 Usually the restless souls of those who came to a violent end in the fields by night. They freeze the grass around them
@@ -590,8 +597,8 @@ and can emit fearsomely frosty fog. Since they are deadly cold, every turn in cl
 
 \subsubsection{Abilities}
 
-\abilityfull{freezingfog}
-\abilityfull{restoration:spectre}
+\printability{freezingfog}
+\printability{restoration:spectre}
 
 \chapter{List of abilities}
 

@@ -1,12 +1,16 @@
 \ProvidesPackage{lists}
 
 \def\emptystring{}
+\def\csvsep{,}
 
 \newcommand{\declarelist}[2]
 {
     \expandafter\def\csname list@#1\endcsname{\emptystring}
+    \expandafter\def\csname list@#1@csv\endcsname{\emptystring}
     \expandafter\def\csname list@#1@sep\endcsname{#2}
 }
+
+\newcommand{\declarecsvlist}[1]{\declarelist{#1}{, }}
 
 \newcommand{\getlist}[1]{\csname list@#1\endcsname}
 
@@ -19,4 +23,32 @@
     \expandafter\edef\csname list@#1\endcsname{%
       \temp\csname list@#1@sep\endcsname#2}%
   \fi%
+  %
+  \edef\temp{\csname list@#1@csv\endcsname}%
+  \ifx\emptystring\temp%
+    \expandafter\edef\csname list@#1@csv\endcsname{#2}%
+  \else%
+    \expandafter\edef\csname list@#1@csv\endcsname{%
+      \temp\csvsep#2}%
+  \fi%
 }
+
+\newcommand{\doforall}[2]
+{
+  \edef\tmp{\csname list@#1@csv\endcsname}
+  \expandafter\forcsvlist\expandafter#2\expandafter{\tmp}
+}
+
+\newcommand{\IfElseEmpty}[3]
+{
+  \edef\temp{\csname list@#1@csv\endcsname}%
+  \ifx\emptystring\temp%
+    #2
+  \else%
+    #3
+  \fi%
+}
+
+\newcommand{\IfEmpty}[2]{\IfElseEmpty{#1}{#2}{}}
+
+\newcommand{\IfNotEmpty}[2]{\IfElseEmpty{#1}{}{#2}}
