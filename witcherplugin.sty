@@ -82,3 +82,29 @@
     \doforall{realm@#2@cities}{\printcity}
   }
 }
+
+\newcommand{\definemonster}[4]
+{
+  \expandafter\def\csname monster@#1@name\endcsname{#2}
+  \expandafter\def\csname monster@#1@desc\endcsname{#3}
+  \expandafter\def\csname monster@#1@stats\endcsname{#4}
+  \declarecsvlist{monster@#1@abilities}
+}
+
+\newcommand{\linkability}[2]
+{
+  \appendtolist{monster@#1@abilities}{#2}
+}
+
+\newcommand{\printmonster}[2][]
+{
+  \subsection{\csname monster@#2@name\endcsname}
+  \IfStrEq{#1}{}{\label{monster:#2}}{\label{monster:#1}}
+  \csname monster@#2@desc\endcsname
+  \subparagraph{Stats:} \csname monster@#2@stats\endcsname
+  \IfNotEmpty{monster@#1@abilities}
+  {
+    \subsubsection{Abilities}
+    \doforall{monster@#1@abilities}{\printability}
+  }
+}
