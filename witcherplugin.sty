@@ -32,16 +32,31 @@
 \newcommand{\abilityname}[1]{\csname ability@#1@name\endcsname}
 \newcommand{\abilitydesc}[1]{\csname ability@#1@desc\endcsname}
 
-\newcommand{\printability}[1]
+\newcommand{\printability}[2][]
 {
-  \paragraph{\abilityname{#1}}
-  \abilitydesc{#1}
+  \paragraph{\abilityname{#2}}
+  \IfStrNotEmpty{#1}{
+    \IfStrEq{#1}{auto}{\label{ability:#2}}{\label{ability:#1}}
+  }
+  \abilitydesc{#2}
+}
+
+\newcommand{\referenceability}[2][]
+{
+  \IfStrEq{#1}{}
+  {
+    \nameref{ability:#2}
+  }
+  {
+    \hyperref[ability:#2]{#1}
+  }
 }
 
 \newcommand{\abilitylist}
 {
   \edef\tmp{\getlist{abilities}}
-  \doforall{abilities}{\printability}
+  \def\autoability##1{\printability[auto]{##1}}
+  \doforall{abilities}{\autoability}
 }
 
 \newcommand{\weapon}[5][]
@@ -102,9 +117,10 @@
   \IfStrEq{#1}{}{\label{monster:#2}}{\label{monster:#1}}
   \csname monster@#2@desc\endcsname
   \subparagraph{Stats:} \csname monster@#2@stats\endcsname
-  \IfNotEmpty{monster@#1@abilities}
+  \IfNotEmpty{monster@#2@abilities}
   {
     \subsubsection{Abilities}
-    \doforall{monster@#1@abilities}{\printability}
+    %\def\listandbreak##1{\referenceability{##1}\\}
+    \doforall{monster@#2@abilities}{\printability}
   }
 }

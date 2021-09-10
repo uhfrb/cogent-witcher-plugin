@@ -8,6 +8,7 @@
     \expandafter\def\csname list@#1\endcsname{\emptystring}
     \expandafter\def\csname list@#1@csv\endcsname{\emptystring}
     \expandafter\def\csname list@#1@sep\endcsname{#2}
+    \newcounter{list@#1@count}
 }
 
 \newcommand{\declarecsvlist}[1]{\declarelist{#1}{, }}
@@ -31,18 +32,21 @@
     \expandafter\edef\csname list@#1@csv\endcsname{%
       \temp\csvsep#2}%
   \fi%
+  \stepcounter{list@#1@count}
 }
 
 \newcommand{\doforall}[2]
 {
-  \edef\tmp{\csname list@#1@csv\endcsname}
-  \expandafter\forcsvlist\expandafter#2\expandafter{\tmp}
+  \IfNotEmpty{#1}
+  {%
+    \edef\tmp{\csname list@#1@csv\endcsname}
+    \expandafter\forcsvlist\expandafter#2\expandafter{\tmp}
+  }
 }
 
 \newcommand{\IfElseEmpty}[3]
 {
-  \edef\temp{\csname list@#1@csv\endcsname}%
-  \ifx\emptystring\temp%
+  \ifnum\value{list@#1@count} = 0%
     #2
   \else%
     #3
@@ -52,3 +56,5 @@
 \newcommand{\IfEmpty}[2]{\IfElseEmpty{#1}{#2}{}}
 
 \newcommand{\IfNotEmpty}[2]{\IfElseEmpty{#1}{}{#2}}
+
+\newcommand{\getcount}[1]{\value{list@#1@count}}
