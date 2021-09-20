@@ -5,6 +5,16 @@
     of -1D6 for this turn. If the CL is exceeded, no adverse effects occur.
 }
 
+\defineability{glare}{Fiendish glare}
+{
+    The fiend's third eye begins to glow red. Any creature who looks into said eye is unable to look away, unless
+    it's intelligence roll exceeds that of the fiend. While contesting in this way, neither fiend nor victim can 
+    make a combat roll. If a creature is caught in the fiend's glare for an entire turn, it temporarily loses all 
+    vision \textendash aside from the burning red eye of the fiend, which they can still see, though it ceases to
+    stun them. This state is considered to be \hyperref[modifier:blindness]{blindness}, though the destiny roll 
+    for the target is unnecessary: The player knows exactly where the fiend is.
+}
+
 \defineability{fly:humanoid}{Fly}
 {
     The creature can fly for several minutes or even hours at a time. While flying, any melee attack gains \textit{charge}, 
@@ -23,11 +33,19 @@
     cover, that counts as a defensive action and is pitted against the user's roll.
 }
 
+\defineability{restoration:fiend}{Restoration (Fiends)}
+{
+    At the end of each turn of combat, the fiend may heal up to two level one injuries.
+    If it escapes combat, it will begin healing injuries of levels two and three, such that,
+    after a day, only injuries of level four remain. Even these will be completely gone after a
+    week. The exception to this rule is the loss of limbs, which is permanent.
+}
+
 \defineability{restoration:spectre}{Restoration (Spectres)}
 {
-    The spectre turns to fog or smoke and creates a number of copies in the near vicinity. These
+    The spectre turns to fog or smoke and creates a number of copies\footnote{Usually two to four} in the near vicinity. These
     copies are harmless and can be immediately defeated by any victory level, but for any $n$ copies
-    alive at the end of one round of combat, the spectre may heal one leven $n$ injury. The copies
+    alive at the end of one round of combat, the spectre may heal one level $n$ injury. The copies
     roll half the original's dice, but penalties to the original do not apply. The original is forced
     to reappear once the last copy is taken out.
 }
