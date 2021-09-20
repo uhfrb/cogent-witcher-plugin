@@ -57,7 +57,7 @@ footheight=38pt]{scrreport}
 \renewcommand{\arraystretch}{1.4}
 
 \newcommand\urlpart[2]{$\underbrace{\text{\texttt{#1}}}_{\text{#2}}$}
-
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
 \begin{document}
 \makeatletter
@@ -457,13 +457,19 @@ The rarity of ingredients determines the challenge level on a survival check on 
 It should also inform the availability and cost when attempting to purchase them.
 
 \subsection{Black blood}
-Turns the consumers blood into a lethal poison. Any creature drinking it while the effect lasts immediately receives
+Turns the consumer's blood into a lethal poison. Any creature drinking it while the effect lasts immediately receives
 poisoning equivalent to a level 4 injury.
 \\[2ex]
 Rarity of ingredients: 3
 
 \subsection{Cat}
 Negates all penalties to perception checks caused by darkness.
+\\[2ex]
+Rarity of ingredients: 2
+
+\subsection{Killer Whale}
+Significantly raises the body's ability to absorb oxygen. Doubles the time the consumer can spend without breathing,
+if they drank the potion at least ten minutes beforehand.
 \\[2ex]
 Rarity of ingredients: 2
 
@@ -478,12 +484,24 @@ Grants one extra die for each combat roll, but negates boni for defensive action
 Rarity of ingredients: 4
 
 \subsection{White honey}
-Cancels the effects of all other potions and removes any poisoning caused by potions.
+Cancels the effects of all other potions and removes any poisoning caused by them.
 \\[2ex]
 Rarity of ingredients: 3
 
 \section{Runes}
-Weapons and armor may be inlaid with runes by some skilfull craftsmen. These provide minor boni.
+Weapons and armor may be inlaid with runes by some skilfull craftsmen, at a price equivalent to
+3 commerce points. These runes provide minor boni, but are mutually exclusive\footnote{One balanced way
+to get around this restriction might be to have an exceptionally skilled craftsman who can inscribe
+sets of runes, but takes much higher prices.}.
+The system assumes the use of the harcore combat rules, though it may be adapted to a regular game.
+
+\begin{itemize}
+	\item \textbf{Rún an gearradh:} +1D6 to any weapon that already provides at least 2D6 weapon bonus.
+	\item \textbf{Rún an tolladh:} A weapon that already reduces the opponent's armor level reduces it
+		  by one additional level if inlaid with these runes.
+	\item \textbf{Rún an éaradh:} These runes create a forceful push when the weapon they're inscribed
+		  on impacts a target. +1D6 aditionally when declaring to stagger, disarm or trip.
+\end{itemize}
 
 \chapter{Special items}
 \section{Weapons}
@@ -570,20 +588,23 @@ The `\hyperref[realm:nilfgaard]{Nilfgaardian} crown' is the floren. Below is a l
 \subsubsection*{Positive}
 
 \rowcolors{2}{tablebackgroundpos2}{tablebackgroundpos1}
-\begin{tabular}{cl}
+\begin{tabularx}{\textwidth}{cX}
 	\rowcolor{tablebackgroundposhead}
 	\textbf{Name} & \textbf{Effect} \\
-\end{tabular}
+\end{tabularx}
 
 
 \subsubsection*{Negative}
 
 \rowcolors{2}{tablebackgroundneg2}{tablebackgroundneg1}
-\begin{tabular}{cl}
+\begin{tabularx}{\textwidth}{cX}
 	\rowcolor{tablebackgroundneghead}
-	\textbf{Name}                       & \textbf{Effect}                                  \\
-	Blindness\label{modifier:blindness} & -4D6, Destiny roll to determine target of attack \\
-\end{tabular}
+	\textbf{Name}                       & \textbf{Effect}                                                  \\
+	Blindness\label{modifier:blindness} & -4D6, Destiny roll to determine target of attack.                \\
+	Swimming\label{modifier:swimming}   & -2D6 to throw-checks, -3D6 in combat. Large bows cannot be used. \\
+	Submerged\label{modifier:submerged} & Throwing or using ranged weapons is impossible, -3D6 in combat.
+										  -1D6 additionally for every two turns spent under water.         \\
+\end{tabularx}
 
 \normalsize
 
