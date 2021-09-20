@@ -37,8 +37,6 @@
     Of humaniod shape, but with pale, sickly yellow-ish skin and thick, protruding, deeply red veins. Like
     with most necrophages, their stench proceeds them. When terminally wounded, they are prone to explode
     spectacularily. This is their true danger, since their blood is poisonous.
-
-    The levels of severity of injuries dealt by non-silver weapons are halved.
 }{
     0-1 STR, 0-1 REF, 0-1 Strangle (proficiency)
 }
@@ -66,3 +64,58 @@
 
 \linkability{nightwraith}{freezingfog}
 \linkability{nightwraith}{restoration:spectre}
+
+% Not yet included in the main file to avoid merge conflicts
+
+\definemonster{drowner}{Drowners}   % Necrophage
+{
+    The largely humanoid shape, bloated abdomen and pale blue-ish to green-ish colour give rise to the common
+    misconception that drowners are the reanimated corpses of unlucky travellers who found their untimely end 
+    in some body of water. Witchers and academics with strong bowels and a strange taste, however, have seen 
+    the scales on their skin, the fins on their back and the gills between their fingers and so concluded that
+    these unhappy creatures are simply a race of scavengers brought into the world by the conjunction of spheres.
+
+    Drowners can be found where there are water and rot in close proximity, and occasionally, during heavy rains, 
+    even further inland. They are cravens, though it is not unheard of that they would attack lone travellers, 
+    especially if these are injured. The only way in which they pose a real threat to a careful human is by catching
+    them in the water: Here, their name is fully justified as they will seek to pull under anything they find 
+    struggling on the surface, to drown it and eat it once dead. 
+
+    Drowners have cousins, but the Muire D'yaeblen of \nameref{region:skellige} are not one of them: They are 
+    genetically identical to the drowners of the continent, though often a little tougher \textendash like the
+    \hyperref[people:skellige]{humans of the isles}.
+    \\[1.5ex]
+    Drowners receive no detriment from being submerged in water and are higly resistant to poisons. Since the karp
+    they share their natural habitat with are also their intellectual peers, magic affecting the mind does not work
+    on them.
+}{
+    0-1 REF, -1 INT, 0-1 Strangle (proficiency)
+}
+
+\definemonster{drowned_dead}{Drowned Dead}
+{
+    These monsters are akin to \hyperref[monster:drowner]{drowners} and, to the layperson, unintelligible from them. Even
+    professionals will have a hard time to tell the two apart at a distance, though from close up, there are signs,
+    if you know where to look \textendash their eyes give it away, for one thing. The appearance of drowned dead is 
+    often linked to the nearby death of particularily vicous criminals, but whether it is in fact the deceased 
+    walking\footnote{Or swimming} once more or merely a remnant of their malice imbued in the body of a scavenger
+    is a point of contention. It is widely accepted that the darkest legends of \hyperref[monster:drowner]{drowners}
+    actually feature this subspecies rather than their cowardly cousins.
+    \\[1.5ex]
+    Like all \hyperref[monster:drowner]{drowners}, the drowned dead are immune to manipulation of their minds and
+    unhindered by submersion in water or poison.
+}{
+    0-1 REF, -1 INT, 1-2 Strangle (proficiency)
+}
+
+\definemonster{mucknixer}{Mucknixers}
+{
+    A more dangerous subspecies of \hyperref[monster:drowner]{drowner}, distinguishable by their darker hue and 
+    more pronounced dorsal fins. They can be found in the bogs of \nameref{region:velen} and by the coasts of
+    \hyperref[region:skellige]{Skellige}.
+    \\[1.5ex]
+    Like all \hyperref[monster:drowner]{drowners}, mucknixers are immune to manipulation of their minds and
+    unhindered by submersion in water or poison.
+}{
+    0-1 STR, 0-1 REF, -1 INT, 0-1 Strangle (proficiency)
+}
