@@ -22,7 +22,7 @@ footheight=38pt]{scrreport}
 % header & footer
 
 \usepackage{scrlayer-scrpage}
-\lofoot{\thetitle \textendash Version \theversion}
+\lofoot{\href{https://github.com/uhfrb/cogent-witcher-plugin}{\thetitle \textendash Version \theversion}}
 \refoot{}
 \pagestyle{scrheadings}
 
@@ -185,7 +185,7 @@ all those pursued and discriminated against by men and stands as the last realm 
 \subsection{Velen}\label{region:velen}
 A miserable province of \nameref{realm:temeria}, to the north of \nameref{city:gors_velen}. The people of this
 province are poor and most of it is covered by extensive swamps and dark woods. Travellers are likely to be met
-with distrust, if ever they reach a village and do not fall victim to \hyperref[monster:drowner]{drowners} or 
+with distrust, if ever they reach a village and do not fall victim to \hyperref[monster:drowner]{drowners} or
 brigands.
 
 \newpage
@@ -264,6 +264,14 @@ The descendants of Tyr rule An Skellig, the island best-suited for farming, sinc
 sea. This clan has brought fourth more kings than any of the others, and they are greatly strengthened by their alliance with Clan an Craite.
 
 \subsection{The Order of the Flaming Rose}
+
+\subsection{The Witch-hunters}
+
+\section{Religious cults}
+
+\subsection{The cult of Freya}\label{religion:freya}
+
+\subsection{The church of the Eternal Fire}\label{religion:eternal_fire}
 
 \section{Customs}
 
@@ -495,16 +503,16 @@ Rarity of ingredients: 3
 \section{Runes}
 Weapons and armor may be inlaid with runes by some skilfull craftsmen, at a price equivalent to
 3 commerce points. These runes provide minor boni, but are mutually exclusive\footnote{One balanced way
-to get around this restriction might be to have an exceptionally skilled craftsman who can inscribe
-sets of runes, but takes much higher prices.}.
+	to get around this restriction might be to have an exceptionally skilled craftsman who can inscribe
+	sets of runes, but takes much higher prices.}.
 The system assumes the use of the harcore combat rules, though it may be adapted to a regular game.
 
 \begin{itemize}
-	\item \textbf{Rún an gearradh:} +1D6 to any weapon that already provides at least 2D6 weapon bonus.
-	\item \textbf{Rún an tolladh:} A weapon that already reduces the opponent's armor level reduces it
-		  by one additional level if inlaid with these runes.
-	\item \textbf{Rún an éaradh:} These runes create a forceful push when the weapon they're inscribed
-		  on impacts a target. +1D6 aditionally when declaring to stagger, disarm or trip.
+	\item \textbf{Rún de gearradh:} +1D6 to any weapon that already provides at least 2D6 weapon bonus.
+	\item \textbf{Rún de tolladh:} A weapon that already reduces the opponent's armor level reduces it
+	      by one additional level if inlaid with these runes.
+	\item \textbf{Rún de éaradh:} These runes create a forceful push when the weapon they're inscribed
+	      on impacts a target. +1D6 aditionally when declaring to stagger, disarm or trip.
 \end{itemize}
 
 \chapter{Special items}
@@ -607,7 +615,7 @@ The `\hyperref[realm:nilfgaard]{Nilfgaardian} crown' is the floren. Below is a l
 	Blindness\label{modifier:blindness} & -4D6, Destiny roll to determine target of attack.                \\
 	Swimming\label{modifier:swimming}   & -2D6 to throw-checks, -3D6 in combat. Large bows cannot be used. \\
 	Submerged\label{modifier:submerged} & Throwing or using ranged weapons is impossible, -3D6 in combat.
-										  -1D6 additionally for every two turns spent under water.         \\
+	-1D6 additionally for every two turns spent under water.                                               \\
 \end{tabularx}
 
 \normalsize
@@ -641,6 +649,10 @@ The levels of severity of injuries against necrophages dealt by non-silver weapo
 \printmonster{rotfiend}
 
 \section{Relicts}
+The creatures described here have but one thing in common: their exceeding rarity. Shortly after the Conjunction
+of Spheres, they were abundant on the continent, but when the humans arrived, these species retreated ever further,
+until their territories could no longer sustain them. It has been hypothesized that the creatures of this type, or
+at least some of them, inhabited the continent before the Conjunction, this is, however, unconfirmed.
 
 \printmonster{fiend}
 
