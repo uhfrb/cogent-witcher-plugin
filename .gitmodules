@@ -1,0 +1,3 @@
+[submodule "latex-lists"]
+	path = latex-lists
+	url = https://github.com/uhfrb/latex-lists
