@@ -17,7 +17,7 @@ LaTeX (You should find one appropriate to your system at https://www.latex-proje
 for example). You will then need to clone all the files in this repository to a folder of 
 your choice, then open your system's equivalent to a command line in said folder and execute
 
-  pdflatex 'Witcher Plugin.tex'
+  latexmk 'Witcher Plugin.tex'
 
 This should create a bunch of auxiliary files and, most importantly, a readable PDF-file.
 Note that, since I try to link to other parts of the document whereever possible, it may
